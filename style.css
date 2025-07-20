@@ -506,3 +506,41 @@ footer {
   background-color: #2a2a3d;
   color: #e5e5e5;
 }
+/* ===== POSTERS SECTION ===== */
+.posters-section {
+  padding: 60px 40px;
+  background: #fff7ed;
+  text-align: center;
+}
+
+.posters-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+
+.poster-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.poster-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.poster-card:hover {
+  transform: scale(1.03);
+}
+
+.poster-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  max-height: 350px;
+  object-fit: cover;
+}
