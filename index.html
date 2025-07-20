@@ -35,7 +35,7 @@
     </div>
   </section>
 
-  <!-- ✅ LIVE UPDATE SECTION (added below HERO) -->
+  <!-- ✅ LIVE UPDATE SECTION -->
   <div id="live-update" style="font-size: 22px; font-weight: bold; color: #1E90FF; text-align: center; padding: 20px;">
     📢 Latest Update Loading...
   </div>
@@ -64,22 +64,27 @@
   </section>
 
   <!-- HOW IT WORKS SECTION -->
- <section class="how" id="how">
-  <h2 data-aos="fade-up">How It Works</h2>
-  <div class="steps" style="display: flex; align-items: center; flex-wrap: wrap; gap: 30px;">
-    <div style="flex: 1; min-width: 250px;">
-      <div class="step" data-aos="fade-up">🛍️ 1. Select a Service</div>
-      <div class="step" data-aos="fade-up">📝 2. Fill Smart Form</div>
-      <div class="step" data-aos="fade-up">💬 3. Get Output on WhatsApp</div>
+  <section class="how" id="how">
+    <h2 data-aos="fade-up">How It Works</h2>
+    <div class="steps" style="display: flex; align-items: center; flex-wrap: wrap; gap: 30px;">
+      <div style="flex: 1; min-width: 250px;">
+        <div class="step" data-aos="fade-up">🛍️ 1. Select a Service</div>
+        <div class="step" data-aos="fade-up">📝 2. Fill Smart Form</div>
+        <div class="step" data-aos="fade-up">💬 3. Get Output on WhatsApp</div>
+      </div>
+      <div style="flex: 1; min-width: 250px;">
+        <img src="assets/image1.jpg" alt="Working Illustration" style="max-width: 100%;" data-aos="fade-left">
+      </div>
     </div>
-    <div style="flex: 1; min-width: 250px;">
-      <img src="assets/image1.jpg" alt="Working Illustration" style="max-width: 100%;" data-aos="fade-left">
-    </div>
-  </div>
-</section>
+  </section>
 
+  <!-- TEAM SECTION -->
+  <section class="team" style="text-align: center; padding: 40px;" data-aos="zoom-in">
+    <h2>Meet Your Virtual Assistant</h2>
+    <img src="assets/image2.jpg" alt="AI Business Assistant" style="max-width: 200px; border-radius: 20px;">
+    <p style="margin-top: 10px;">Always ready to help your business grow with AI-powered tools.</p>
+  </section>
 
-<!-- 👇 This is the corrected footer section (only one now) -->
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
@@ -88,25 +93,25 @@
     </div>
   </footer>
 
-<!-- 👇 This closing script tag was missing -->
-<script>
-  const messages = [
-    "🎉 25 businesses joined today!",
-    "📩 180+ emails scheduled this week!",
-    "🚀 AI videos created for 58 shops!",
-    "🤖 VyapaarBuddy is helping 100+ stores!",
-    "📈 75% users got better reach with AI!"
-  ];
-
-  let index = 0;
-  const updateBox = document.getElementById("live-update");
-
-  setInterval(() => {
-    updateBox.innerText = messages[index];
-    index = (index + 1) % messages.length;
-  }, 3000);
-</script>
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    const messages = [
+      "🎉 25 businesses joined today!",
+      "📩 180+ emails scheduled this week!",
+      "🚀 AI videos created for 58 shops!",
+      "🤖 VyapaarBuddy is helping 100+ stores!",
+      "📈 75% users got better reach with AI!"
+    ];
+    let index = 0;
+    const updateBox = document.getElementById("live-update");
+    setInterval(() => {
+      updateBox.innerText = messages[index];
+      index = (index + 1) % messages.length;
+    }, 3000);
+  </script>
 </body>
-<!-- Force redeploy: 20 July 2025 -->
-
 </html>
