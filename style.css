@@ -544,3 +544,15 @@ footer {
   max-height: 350px;
   object-fit: cover;
 }
+
+.cards .card {
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border 0.3s;
+}
+
+.cards .card:hover {
+  transform: scale(1.03);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
