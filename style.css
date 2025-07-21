@@ -556,7 +556,7 @@ footer {
   border-color: #3b82f6;
   box-shadow: 0 8px 18px rgba(0,0,0,0.1);
 }
- .timeline-assistant-wrapper {
+     .timeline-assistant-wrapper {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -614,4 +614,3 @@ footer {
       margin-bottom: 20px;
       color: #2d2d2d;
     }
-  
