@@ -1,4 +1,3 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,289 @@
   <title>Contact | VyapaarBuddy</title>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    /* Blue Background for Contact Section */
+
+
+ :root {
+  --primary: #3b82f6;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --radius: 18px;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.contact-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 40px 40px;
+    object-fit: cover;
+}
+
+.contact-modern {
+  padding: 80px 20px;
+  background-color: #f5f8fc; /* Light Blue Grey */
+  background-image: url('assets/contactbg.png'); /* 👈 Make sure this file is present */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  background-color: var(--bg-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-form {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form h2 {
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  padding: 14px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2563eb;
+}
+
+.contact-illustration {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.contact-illustration img {
+  width: 100%;
+  max-width: 300px;
+  animation: float 4s ease-in-out infinite;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.4s;
+}
+
+.contact-illustration img:hover {
+  transform: scale(1.03);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Modern contact section layout */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-form-modern {
+  flex: 1;
+  min-width: 300px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border: 1px solid #e0e7ff;
+}
+
+.smart-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.smart-form input,
+.smart-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+.smart-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.smart-form button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.smart-form button:hover {
+  background: #1d4ed8;
+}
+
+.social-ctas {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-whatsapp,
+.cta-insta {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.cta-whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+
+.cta-insta {
+  background-color: #e1306c;
+  color: white;
+}
+
+.cta-whatsapp:hover {
+  background-color: #1ebc5a;
+}
+
+.cta-insta:hover {
+  background-color: #c92a5e;
+}
+
+.contact-ai-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  transition: transform 0.4s;
+}
+
+.contact-ai-image img:hover {
+  transform: scale(1.03);
+}
+
+.contact-section {
+  background-color: #f5f8fc;
+  padding: 40px 20px;
+}
+
+.banner-img {
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-form,
+  .contact-img {
+    width: 100%;
+  }
+
+  .contact-img img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+/* Blue Background for Contact Section */
+.blue-bg {
+  background-image: url("assets/bluecontactbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+  </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <header class="navbar colorful-navbar">
     <div class="logo">VyapaarBuddy</div>
@@ -20,33 +299,68 @@
     </nav>
   </header>
 
-  <!-- Contact Banner Image -->
-  <div class="contact-banner" data-aos="zoom-in">
-    <img src="assets/contact banner.jpg" alt="Contact Banner" style="width: 100%; height: auto; border-radius: 20px; margin-top: 20px;">
+
+
+  <!-- Contact Section -->
+<section class="section contact-modern blue-bg" style="background: linear-gradient(to bottom, #f0f7ff, #e0f0ff); padding: 40px 0;">
+
+  <h1 class="section-title" data-aos="fade-down">🤖 Let’s Talk Smart</h1>
+  <hr style="width: 80px; height: 4px; background: #3b82f6; border: none; margin: 10px auto 30px; border-radius: 6px;">
+
+  <!-- ✅ Step 2: New Contact Banner Image -->
+  <div data-aos="zoom-in" style="text-align: center; margin-bottom: 40px;">
+    <img src="assets/contact banner.jpg" alt="Contact Banner" style="width: 100%; max-height: 350px; object-fit: cover; border-radius: 0 0 30px 30px;">
   </div>
 
-  <section class="section">
-    <h1 class="section-title">Get in Touch with Us</h1>
-    <form class="contact-form" data-aos="fade-up">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Form + Assistant -->
+  <div class="contact-wrapper" data-aos="fade-up" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 40px;">
 
-    <div style="text-align:center; margin-top: 40px;" data-aos="fade-up">
-      <p>📲 Follow us on Instagram:</p>
-      <a href="https://instagram.com/thevyapaarbuddy" target="_blank" style="color:#3b82f6; font-weight:bold;">
-        @thevyapaarbuddy
-      </a>
+    <!-- Left: Contact Form -->
+    <div class="contact-form-modern" style="flex: 1; min-width: 300px;">
+      <form class="smart-form">
+        <h2>📬 Send Us a Message</h2>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="How can we assist you?" required></textarea>
+        <button type="submit">🚀 Send</button>
+      </form>
+
+      <div class="social-ctas">
+        <a href="https://wa.me/9194093345704?text=Hi%20VyapaarBuddy!%20I%20need%20your%20help." target="_blank" class="cta-whatsapp">💬 Chat on WhatsApp</a>
+        <a href="https://instagram.com/thevyapaarbuddy" target="_blank" class="cta-insta">📷 DM on Instagram</a>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 VyapaarBuddy. All rights reserved.</p>
-  </footer>
+    <!-- ✅ Step 3: Assistant Image Beside Form -->
+    <div class="contact-ai-image" data-aos="zoom-in" style="flex: 1; min-width: 280px; text-align: center;">
+      <img src="assets/contactassistant1.jpg" alt="Assistant Contact" style="max-width: 90%; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+    </div>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-</body>
-</html>
+  </div>
+</section>
+
+<!-- Instagram Follow -->
+<div style="text-align:center; margin-top: 40px;" data-aos="fade-up">
+  <p>📲 Follow us on Instagram:</p>
+  <a href="https://instagram.com/thevyapaarbuddy" target="_blank" style="color:#3b82f6; font-weight:bold;">
+    @thevyapaarbuddy
+  </a>
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #222; color: #fff; text-align: center; padding: 30px 20px;">
+  <p>© 2025 VyapaarBuddy. All rights reserved.</p>
+  <p style="margin-top: 5px;">
+    <a href="index.html" style="color:#0f0;">Home</a> |
+    <a href="contact.html" style="color:#0f0;">Contact</a> |
+    <a href="https://instagram.com/thevyapaarbuddy" target="_blank" style="color:#0f0;">Instagram</a>
+  </p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919409335704?text=Hi%20VyapaarBuddy!%20I%20need%20your%20help." class="whatsapp-float" target="_blank" data-aos="zoom-in">
+  <img src="assets/whatsapp-icon.png" alt="WhatsApp" />
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
