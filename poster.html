@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poster Generator - VyapaarBuddy</title>
+  <!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fffdf7, #e3f2fd);
+  color: #222;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ==== Poster Hero ==== */
+.poster-hero {
+  background: linear-gradient(to right, #fff3e0, #ffe0b2);
+  padding: 100px 20px 60px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.poster-hero::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #ffcc80, transparent);
+  z-index: 0;
+}
+
+.poster-hero .container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  z-index: 2;
+}
+
+.poster-hero .hero-text {
+  flex: 1;
+}
+
+.poster-hero .hero-text h1 {
+  font-size: 3.2rem;
+  color: #e65100;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px #ffc10766;
+}
+
+.poster-hero .hero-text p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.poster-hero .hero-btn {
+  background: #ff6f00;
+  color: #fff;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 111, 0, 0.3);
+}
+
+.poster-hero .hero-btn:hover {
+  background: #e65100;
+  box-shadow: 0 10px 25px rgba(230, 81, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.poster-hero .hero-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease;
+}
+
+.poster-hero .hero-image img:hover {
+  transform: scale(1.03);
+}
+
+/* ==== Form Section ==== */
+.form-section {
+  background: linear-gradient(to right, #e8f5e9, #c8e6c9);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.form-section::before {
+  content: "";
+  position: absolute;
+  left: -60px;
+  top: -60px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #a5d6a7, transparent);
+  z-index: 0;
+}
+
+.form-section h2 {
+  font-size: 2.4rem;
+  color: #00796b;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #bdbdbd;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #00796b;
+}
+
+.submit-btn {
+  background: #0077cc;
+  color: #fff;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 119, 204, 0.3);
+}
+
+.submit-btn:hover {
+  background: #005fa3;
+  transform: scale(1.03);
+}
+
+/* ==== Preview Section ==== */
+.preview-section {
+  background: #f1f8e9;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.preview-section img {
+  max-width: 85%;
+  margin-top: 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* ==== Gallery Section ==== */
+.gallery-section {
+  padding: 80px 20px;
+  background: linear-gradient(to top, #fffde7, #fff3e0);
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2.8rem;
+  color: #ff6f00;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #f9a82566;
+}
+
+.gallery-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.poster-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 10px;
+}
+
+.poster-gallery img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.poster-gallery img:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+html {
+  scroll-behavior: smooth;
+}
+#gallery-section {
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #fff7f0, #ffe4c9);
+  text-align: center;
+}
+
+.sample-card {
+  display: inline-block;
+  margin: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.sample-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.sample-card img {
+  width: 280px;
+  height: auto;
+  display: block;
+}
+
+.sample-caption {
+  padding: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background-color: #fdf4e7;
+}
+.why-vyapaarbuddy {
+  background: #fff1e0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.why-vyapaarbuddy h2 {
+  color: #ff6600;
+  margin-bottom: 1rem;
+}
+
+.why-vyapaarbuddy ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.why-vyapaarbuddy li {
+  margin: 0.5rem 0;
+}
+
+/* ==== Footer ==== */
+footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.poster-btn {
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+  font-size: 0.95rem;
+}
+.poster-btn:hover {
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- 🌟 Hero Section -->
+  <section class="poster-hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>📢 Poster & Banner Design</h1>
+        <p>
+          Create stunning posters for your business with AI magic ✨<br />
+          Be it offers, sales, or events – your brand deserves to shine!
+        </p>
+        <a href="#posterform" class="hero-btn">🎨 Start Designing Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="assets/posterheroposter.jpg" alt="AI Poster Design Hero Image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 🖊️ Poster Creation Form -->
+  <section class="form-section" id="posterform">
+    <h2>🖼️ Create Your Poster</h2>
+    <form>
+      <div class="form-group">
+        <label for="bizname">Business Name</label>
+        <input type="text" id="bizname" placeholder="e.g., Gopal Textiles" />
+      </div>
+
+      <div class="form-group">
+        <label for="offer">Offer / Message</label>
+        <input type="text" id="offer" placeholder="e.g., Festive Sale – Flat 50% Off" />
+      </div>
+
+      <div class="form-group">
+        <label for="logo">Upload Logo</label>
+        <input type="file" id="logo" />
+      </div>
+
+      <div class="form-group">
+        <label for="theme">Select Theme</label>
+        <select id="theme">
+          <option value="">-- Choose Theme --</option>
+          <option value="festive">Festive / Diwali</option>
+          <option value="discount">Discount / Sale</option>
+          <option value="newlaunch">New Launch</option>
+          <option value="event">Event / Invite</option>
+        </select>
+      </div>
+
+      <button class="submit-btn" type="submit">✨ Generate Poster</button>
+    </form>
+  </section>
+
+  <!-- 👁️ Poster Preview -->
+  <section class="preview-section">
+    <h2>🔍 Your Poster Preview</h2>
+    <p>(After generation, poster will appear here)</p>
+    <img src="assets/sampleposter.jpg" alt="Generated Poster Sample" />
+  </section>
+
+<!-- 🌟 Poster Gallery - Upgraded -->
+<section id="gallery-section" style="text-align: center; background: linear-gradient(to bottom, #fff7f0, #fefefe); padding: 3rem 1rem;">
+  <h2 class="section-title" style="color: #ff5e00; font-size: 2rem; margin-bottom: 1rem;">
+    🎨 Sample Posters by <span style="color: #ff9900;">VyapaarBuddy</span>
+  </h2>
+  <p style="color: #444; font-size: 1rem; margin-bottom: 2rem;">
+    Explore AI-generated festival and business-ready designs tailored for Indian vyapaars!
+  </p>
+
+  <!-- 🖼️ Poster Wall Image -->
+  <img src="assets/posterwall1diwali.jpg" alt="Poster Wall by VyapaarBuddy"
+       style="max-width: 100%; border-radius: 1rem; box-shadow: 0 0 25px rgba(0,0,0,0.15); margin-bottom: 2rem;" />
+
+  <!-- 🔘 Poster Buttons -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1rem;">
+    <div class="poster-btn">🪔 Diwali Sale</div>
+    <div class="poster-btn">🏪 Local Promo</div>
+    <div class="poster-btn">🎨 Holi Dhamaka</div>
+    <div class="poster-btn">🚀 Grand Opening</div>
+    <div class="poster-btn">👗 Fashion Week</div>
+    <div class="poster-btn">🛍️ Mega Discount</div>
+    <div class="poster-btn">🎉 Event Invite</div>
+  </div>
+</section>
+
+
+  <!-- ⭐ Why VyapaarBuddy Posters -->
+  <section class="why-vyapaarbuddy">
+    <h2>🌈 Why Choose VyapaarBuddy Posters?</h2>
+    <ul>
+      <li>✅ Festival & Regional Flavor</li>
+      <li>✅ AI-Generated, High Quality</li>
+      <li>✅ Tailored for Indian Small Businesses</li>
+      <li>✅ Download or Customize in Seconds</li>
+    </ul>
+  </section>
+
+  <!-- 🔚 Footer -->
+  <footer>
+    Made with ❤️ by VyapaarBuddy – AI for Every Business
+  </footer>
+
+  <!-- Optional Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+</body>
+</html>
