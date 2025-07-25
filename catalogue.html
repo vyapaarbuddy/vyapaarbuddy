@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalogs | VyapaarBuddy</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* style.css | PRO UPGRADED VERSION */
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0d1117;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #7f00ff 0%, #e100ff 100%);
+  color: #fff;
+  position: relative;
+  z-index: 10;
+}
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.navbar .logo span {
+  color: #ffd700;
+}
+.navbar nav a {
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navbar nav a:hover,
+.navbar nav .active {
+  color: #ffd700;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #001f3f, #004466);
+  color: white;
+  text-align: center;
+}
+.hero-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+.btn-primary {
+  padding: 12px 30px;
+  background: #ff7b00;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(255, 123, 0, 0.4);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: #ff9a2a;
+  transform: translateY(-2px);
+}
+
+/* Catalog Section */
+.catalog-gallery-section {
+  padding: 60px 0;
+  background: #0b0f19;
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.catalog-card {
+  background: #111827;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.catalog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+.catalog-card h4 {
+  font-size: 1.2rem;
+  padding: 0 20px;
+  margin-top: 15px;
+  color: #ffdc61;
+}
+.catalog-card p {
+  padding: 0 20px 15px;
+  font-size: 0.95rem;
+  color: #b0b8d1;
+}
+.catalog-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 20px;
+  gap: 10px;
+}
+.btn-sm {
+  flex: 1;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+.btn-sm:hover {
+  background: #1e40af;
+}
+
+/* Ripple Effect */
+.catalog-card .ripple {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-effect 0.6s ease-out;
+}
+@keyframes ripple-effect {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+.catalog-card.active-touch {
+  transform: scale(0.97);
+}
+.catalog-card.hovered {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp Pulse */
+a[href*="wa.me"].pulse {
+  animation: pulse-effect 0.6s ease-out;
+}
+@keyframes pulse-effect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* CTA Strip Updated */
+.cta-strip {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  text-align: center;
+  color: #000;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.cta-strip h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.cta-strip p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px 0;
+  background: #000000;
+  color: #bbb;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Scroll-Up Button */
+.scroll-up-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 45px;
+  height: 45px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+.scroll-up-btn.visible {
+  opacity: 1;
+}
+
+/* Sticky Navbar from JS */
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease;
+}
+.navbar.sticky nav a {
+  color: #fff;
+}
+.navbar.sticky nav a.active {
+  color: #ff7b00;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar nav a {
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Dark Toggle */
+.dark-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.dark-toggle.active {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Vyapaar<span>Buddy</span></h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="poster.html">Posters</a>
+        <a href="catalog.html" class="active">Catalogs</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <h2>Boost Your Business with Stunning Catalogs</h2>
+      <p>Ready-made & customized designs to present your services like a pro.</p>
+      <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-primary">📲 Order Your Catalog</a>
+    </div>
+  </section>
+
+  <!-- Catalog Gallery -->
+  <section class="catalog-gallery-section">
+    <div class="container">
+      <h3 class="section-title">AI-Generated Catalog Samples</h3>
+      <div class="catalog-grid">
+
+        <!-- Catalog 1 -->
+        <div class="catalog-card">
+          <img src="assets/catalog/catalog-tiffin.jpg" alt="Tiffin Catalog">
+          <h4>Tiffin Service Catalog</h4>
+          <p>Clean layout for daily meal services & home chefs.</p>
+          <div class="catalog-buttons">
+            <a href="#" class="btn-sm">👁 View</a>
+            <a href="#" class="btn-sm">📥 Download</a>
+            <a href="https://wa.me/91XXXXXXXXXX" class="btn-sm">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Catalog 2 -->
+        <div class="catalog-card">
+          <img src="assets/catalog/catalog-salon.jpg" alt="Salon Catalog">
+          <h4>Salon Price List</h4>
+          <p>Attractive pricing catalog to boost bookings.</p>
+          <div class="catalog-buttons">
+            <a href="#" class="btn-sm">👁 View</a>
+            <a href="#" class="btn-sm">📥 Download</a>
+            <a href="https://wa.me/91XXXXXXXXXX" class="btn-sm">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Catalog 3 -->
+        <div class="catalog-card">
+          <img src="assets/catalog/catalog-mobile.jpg" alt="Mobile Shop Catalog">
+          <h4>Mobile Accessories Catalog</h4>
+          <p>Display offers, prices, and combos in style.</p>
+          <div class="catalog-buttons">
+            <a href="#" class="btn-sm">👁 View</a>
+            <a href="#" class="btn-sm">📥 Download</a>
+            <a href="https://wa.me/91XXXXXXXXXX" class="btn-sm">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- Add More Catalog Cards Here -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h3>Want Your Own Business Catalog?</h3>
+      <p>Let our AI-powered design assistant create it for you. Fast. Easy. Beautiful.</p>
+      <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-primary">Let’s Talk on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 VyapaarBuddy | Made with ❤️ in India</p>
+    </div>
+  </footer>
+<script>
+  // 🌐 Smooth Scrolling for hash-links with easing
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({ 
+      behavior: 'smooth', block: 'start' 
+    });
+  });
+});
+
+// 🧠 Debounced Sticky Navbar + Scroll-Up Button
+const navbar = document.querySelector('.navbar');
+const scrollUpBtn = document.createElement('div');
+scrollUpBtn.className = 'scroll-up-btn';
+scrollUpBtn.innerHTML = '↑';
+document.body.appendChild(scrollUpBtn);
+
+const onScroll = () => {
+  if (window.scrollY > 80) {
+    navbar.classList.add('sticky', 'shadow');
+    scrollUpBtn.classList.add('visible');
+  } else {
+    navbar.classList.remove('sticky', 'shadow');
+    scrollUpBtn.classList.remove('visible');
+  }
+};
+let timer;
+window.addEventListener('scroll', () => {
+  clearTimeout(timer);
+  timer = setTimeout(onScroll, 50);
+});
+
+// Scroll-Up Button Click
+scrollUpBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// 🪩 AOS (Animate On Scroll) Init
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.AOS) AOS.init({ duration: 700, easing: 'ease-in-out', once: true });
+});
+
+// 📦 Lazy Loading Images
+const imgs = document.querySelectorAll('img[data-src]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const img = e.target;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      io.unobserve(img);
+    }
+  });
+}, { threshold: 0.1 });
+
+imgs.forEach(img => {
+  io.observe(img);
+});
+
+// 🎉 Catalog Card Hover Ripple Effect + Touch Transform
+document.querySelectorAll('.catalog-card').forEach(card => {
+  card.addEventListener('mouseenter', () => card.classList.add('hovered'));
+  card.addEventListener('mouseleave', () => card.classList.remove('hovered'));
+
+  card.addEventListener('touchstart', e => {
+    card.classList.add('active-touch');
+    const r = card.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.left = `${e.touches[0].clientX - r.left}px`;
+    ripple.style.top = `${e.touches[0].clientY - r.top}px`;
+    card.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+  card.addEventListener('touchend', () => card.classList.remove('active-touch'));
+});
+
+// 💬 WhatsApp CTA click feedback
+document.querySelectorAll("a[href*='wa.me']").forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('pulse');
+  });
+});
+
+// ⚙️ Dark Mode Toggle
+const darkToggle = document.createElement('div');
+darkToggle.className = 'dark-toggle';
+darkToggle.innerHTML = '🌓';
+document.body.appendChild(darkToggle);
+
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  darkToggle.classList.toggle('active');
+});
+
+// 📊 Log event (placeholder for analytics)
+window.logEvent = (name, details) => console.log(`Event: ${name}`, details);
+
+</script>
+
+</body>
+</html>
