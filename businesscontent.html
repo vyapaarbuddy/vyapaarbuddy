@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Business Content | VyapaarBuddy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="businessstyle.css">
+</head>
+<body>
+
+  <!-- 🔥 HEADER -->
+  <header class="hero">
+    <h1>🐾 AI Business Content Generator</h1>
+    <p>Create slogans, bios, descriptions & captions in seconds!</p>
+  </header>
+
+  <!-- 📄 FORM SECTION -->
+  <section class="content-generator">
+    <div class="form-box">
+      <label>📋 Content Type:</label>
+      <select id="contentType">
+        <option value="Caption">Caption</option>
+        <option value="Slogan">Slogan</option>
+        <option value="Bio">Bio</option>
+        <option value="Description">Description</option>
+      </select>
+
+      <label>🏪 Business Type:</label>
+      <input id="businessType" type="text" placeholder="e.g. Café, Jewellery Store">
+
+      <label>🎨 Tone:</label>
+      <select id="tone">
+        <option value="Friendly">Friendly</option>
+        <option value="Professional">Professional</option>
+        <option value="Funny">Funny</option>
+        <option value="Bold">Bold</option>
+      </select>
+
+      <label>🔍 Keywords (optional):</label>
+      <input id="keywords" type="text" placeholder="e.g. organic, family-owned">
+
+      <label>🖼️ Product Image:</label>
+      <input type="file" id="imageUpload" accept="image/*">
+
+      <button onclick="generateContent()">🚀 Generate</button>
+    </div>
+
+    <!-- 📤 RESULT BOX -->
+    <div class="output-box">
+      <h3>🎉 Your Result:</h3>
+      <p id="outputText">Fill in details and click Generate...</p>
+      <button onclick="copyText()">📋 Copy to Clipboard</button>
+
+      <div id="imagePreviewContainer">
+        <img id="previewImage" src="" style="display: none;" />
+      </div>
+
+      <!-- 👾 Future Visual Placeholder -->
+      <img src="assets/aibusinessassistant.jpg" alt="AI Assistant" class="assistant-img">
+    </div>
+  </section>
+
+  <!-- 👣 FOOTER -->
+  <footer>
+    <p>Built with ❤️ by <strong>VyapaarBuddy</strong></p>
+    <p>
+      <a href="index.html">🏠 Home</a>
+      <a href="contact.html">📞 Contact</a>
+      <a href="https://instagram.com/thevyapaarbuddy" target="_blank">📷 Instagram</a>
+    </p>
+    <p>© 2025 VyapaarBuddy | AI Powered Marketing</p>
+  </footer>
+
+  <!-- 💡 LOGIC -->
+  <script>
+    function generateContent() {
+      const type = document.getElementById("contentType").value;
+      const business = document.getElementById("businessType").value;
+      const tone = document.getElementById("tone").value;
+      const keywords = document.getElementById("keywords").value;
+
+      let result = `Here's a ${tone.toLowerCase()} ${type.toLowerCase()} for your ${business || "business"}`;
+      if (keywords) result += ` featuring keywords: ${keywords}`;
+      result += `. 🚀✨`;
+
+      document.getElementById("outputText").innerText = result;
+    }
+
+    function copyText() {
+      const text = document.getElementById("outputText").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+      });
+    }
+
+    document.getElementById("imageUpload").addEventListener("change", function (event) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.getElementById("previewImage");
+        img.src = reader.result;
+        img.style.display = "block";
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    });
+  </script>
+
+</body>
+</html>
